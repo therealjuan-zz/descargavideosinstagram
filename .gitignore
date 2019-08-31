@@ -2,5 +2,6 @@ __pycache__/
 bin/
 include/
 lib/
+descargavideosinstagram/
 .gitignore
 .Python
