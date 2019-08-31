@@ -8,7 +8,7 @@ def validatePostURL(form, field):
 	url_regex = r"(^(http|https):\/\/www\.instagram\.com\/p\/.*)"
 	regex = re.compile(url_regex)
 	if regex.match(field.data) is None:
-		raise ValidationError("Your URL should start with https://instagram/p/")
+		raise ValidationError("La dirección URL debe ser del estilo https://instagram/p/aB23dCeZ")
 
 class InstagramVideoURLDecoder(FlaskForm):
 
@@ -16,7 +16,7 @@ class InstagramVideoURLDecoder(FlaskForm):
 		validators=[DataRequired(),
 			validatePostURL,
 			Length(min=2, max=100),
-			url(message='Please make sure you enter a valid URL',
+			url(message='Introduce una URL válida de Instagram',
 			require_tld=True)])
 
 	submit = SubmitField('Obtener video')
