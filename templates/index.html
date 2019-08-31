@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Descarga videos de Instagram en un click!</h1>
+    <section id="form">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert                                                                                                                                                        alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+            {{ form.videoURL.label(class="form-control-label")}}
+            {% if form.videoURL.errors %}
+               {{form.videoURL(class="form-control form-control-lg is-invalid")}}
+               <div class="invalid-feedback">
+                    {% for error in form.videoURL.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+               </div>
+            {% else %}
+               {{ form.videoURL(class="form-control form-control-lg")}}
+            {% endif %}
+
+            </div>
+            {{ form.submit(class="btn btn-outline-info")}}
+        </form>
+    </section>
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+	<h1>Aqui esta tu video</h1>
+	{% for video in session['video_list'] %}
+		<video controls>
+			<source src="{{video}}" type="video/mp4">
+		</video>
+		<button class="btn btn-outline-info" onclick="window.open('{{video}}')">Abrir video en un tab</button>
+	{% endfor %}
+	<button class="btn btn-outline-info" onclick="location.href=('{{ url_for("home")}}')">Extraer videos de otro post</button>
+
+{% endblock content %}
