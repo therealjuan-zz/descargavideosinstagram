@@ -12,7 +12,7 @@ def validatePostURL(form, field):
 
 class InstagramVideoURLDecoder(FlaskForm):
 
-	videoURL = StringField('Instagram Video URL',
+	videoURL = StringField('URL del Post de Instagram',
 		validators=[DataRequired(),
 			validatePostURL,
 			Length(min=2, max=100),
